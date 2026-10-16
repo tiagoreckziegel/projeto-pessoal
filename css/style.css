@@ -1,0 +1,768 @@
+/* ========================================
+   PORTFÓLIO PESSOAL — CSS ATUALIZADO
+
+   Estilo: azul-marinho moderno e minimalista.
+
+   Mantivemos as cores originais de:
+   HTML, CSS, JavaScript, Git, GitHub e LinkedIn.
+
+   Este arquivo usa as MESMAS classes do seu HTML.
+   Portanto, não é necessário refazer as seções.
+======================================== */
+
+
+/* ========================================
+   1. CONFIGURAÇÕES GERAIS DA PÁGINA
+======================================== */
+
+/* Importa as fontes utilizadas no portfólio.
+   Inter: textos e links.
+   Poppins: títulos. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+* {
+    /* Fonte padrão de todos os elementos. */
+    font-family: "Inter", sans-serif;
+
+    /* Faz a largura incluir padding e borda.
+       Isso facilita controlar o tamanho dos elementos. */
+    box-sizing: border-box;
+
+    /* Remove as margens automáticas do navegador. */
+    margin: 0;
+
+    /* Remove os espaçamentos internos automáticos. */
+    padding: 0;
+
+    /* Remove o sublinhado padrão dos links. */
+    text-decoration: none;
+}
+
+html {
+    /* Ao clicar em Sobre, Projetos ou Contato,
+       a página rola suavemente até a seção. */
+    scroll-behavior: smooth;
+}
+
+/* Aplica uma fonte diferente somente aos títulos. */
+h1,
+h2,
+h3 {
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* ========================================
+   2. BODY — FUNDO E CORES DA PÁGINA
+======================================== */
+
+body {
+    /* Cria um fundo azul-marinho com dois pontos de luz suaves.
+       O último valor (#0c1424) é a cor principal do fundo. */
+    background:
+        radial-gradient(circle at 12% 0%, #1b3054 0%, transparent 35%),
+        radial-gradient(circle at 95% 90%, #172c4c 0%, transparent 35%),
+        #0c1424;
+
+    /* Cor principal dos textos sobre o fundo escuro. */
+    color: #f8fafc;
+
+    /* Garante que o fundo cubra pelo menos a altura da tela. */
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   3. HEADER — CABEÇALHO
+======================================== */
+
+header {
+    /* O cabeçalho ocupa toda a largura da tela. */
+    width: 100%;
+
+    /* Coloca o título e o menu lado a lado. */
+    display: flex;
+
+    /* Deixa o título à esquerda e o menu à direita. */
+    justify-content: space-between;
+
+    /* Centraliza título e menu na altura do cabeçalho. */
+    align-items: center;
+
+    /* Espaço entre o nome e os links, se a tela apertar. */
+    gap: 20px;
+
+    /* Espaço dentro do cabeçalho:
+       17px em cima/embaixo e 5% nas laterais. */
+    padding: 17px 5%;
+
+    /* Azul-marinho ligeiramente transparente. */
+    background-color: #0c1424ed;
+
+    /* Desfoca o conteúdo que passa por trás do cabeçalho. */
+    backdrop-filter: blur(12px);
+
+    /* Linha discreta para separar o cabeçalho da página. */
+    border-bottom: 1px solid #ffffff1c;
+
+    /* STICKY mantém o cabeçalho no topo ao rolar,
+       mas ele continua ocupando seu espaço normal na página. */
+    position: sticky;
+
+    /* O cabeçalho para de subir ao alcançar o topo. */
+    top: 0;
+
+    /* Garante que o menu aberto fique à frente das seções. */
+    z-index: 1000;
+}
+
+
+/* ========================================
+   4. H1 — SEU NOME NO CABEÇALHO
+======================================== */
+
+h1 {
+    /* Tamanho do nome no computador. */
+    font-size: 25px;
+
+    /* Negrito forte, mas sem exagerar no peso. */
+    font-weight: 700;
+
+    /* Aproxima um pouco as letras para um visual moderno. */
+    letter-spacing: -0.6px;
+
+    /* Espaçamento confortável se o nome quebrar de linha. */
+    line-height: 1.35;
+}
+
+
+/* ========================================
+   5. MENU DE NAVEGAÇÃO (COMPUTADOR)
+======================================== */
+
+nav {
+    /* Coloca Sobre, Projetos e Contato lado a lado. */
+    display: flex;
+
+    /* Centraliza os links verticalmente. */
+    align-items: center;
+
+    /* Distância entre um link e outro. */
+    gap: 8px;
+}
+
+.links-nav {
+    /* Cada link terá uma área confortável para clicar. */
+    display: block;
+
+    /* Espaço dentro dos links. */
+    padding: 10px 14px;
+
+    /* Arredonda o fundo que aparece ao passar o mouse. */
+    border-radius: 10px;
+
+    /* Cor clara, mas um pouco menos intensa que o título. */
+    color: #cbd5e1;
+
+    /* Tamanho e peso do texto do menu. */
+    font-size: 15px;
+    font-weight: 600;
+
+    /* Faz a mudança de cor acontecer suavemente. */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.links-nav:hover {
+    /* Clareia o texto ao passar o mouse. */
+    color: #ffffff;
+
+    /* Mostra um fundo azul discreto atrás do link. */
+    background-color: #263650;
+}
+
+.botao-menu {
+    /* Esconde o botão ☰ nas telas grandes. */
+    display: none;
+}
+
+
+/* ========================================
+   6. MAIN — CONTEÚDO PRINCIPAL
+======================================== */
+
+main {
+    /* O conteúdo ocupa 90% da tela. */
+    width: 90%;
+
+    /* Impede que o conteúdo fique largo demais em monitores grandes. */
+    max-width: 1100px;
+
+    /* 48px de espaço acima e centralização nas laterais.
+       Como o header é STICKY, não precisamos dos antigos 140px. */
+    margin: 48px auto 0;
+
+    /* Coloca as seções uma embaixo da outra. */
+    display: flex;
+    flex-direction: column;
+
+    /* Mantém a MESMA distância entre todas as seções. */
+    gap: 24px;
+}
+
+section {
+    /* Fundo dos blocos com uma transição muito discreta. */
+    background: linear-gradient(135deg, #18253b, #121d30);
+
+    /* Borda fina para destacar a seção do fundo geral. */
+    border: 1px solid #304057;
+
+    /* Cantos mais arredondados. */
+    border-radius: 18px;
+
+    /* Sombra suave ao redor da seção. */
+    box-shadow: 0 12px 30px #00000024;
+
+    /* Espaço interno para o texto não encostar nas bordas. */
+    padding: 36px;
+
+    /* Quando clicar no menu, deixa um espaço abaixo do header. */
+    scroll-margin-top: 105px;
+}
+
+h2 {
+    /* Organiza o detalhe azul e o título lado a lado. */
+    display: flex;
+
+    /* Alinha o detalhe azul no centro da altura do título. */
+    align-items: center;
+
+    /* Distância entre o detalhe azul e o texto. */
+    gap: 12px;
+
+    /* Tamanho e peso dos títulos das seções. */
+    font-size: 28px;
+    font-weight: 700;
+
+    /* Aproxima um pouco as letras do título. */
+    letter-spacing: -0.4px;
+}
+
+h2::before {
+    /* Cria um pequeno elemento decorativo ANTES do título.
+       Não é necessário adicionar nada no HTML. */
+    content: "";
+
+    /* Largura e altura da barrinha. */
+    width: 5px;
+    height: 27px;
+
+    /* Arredonda as extremidades da barrinha. */
+    border-radius: 10px;
+
+    /* Degradê do azul para o roxo na barrinha. */
+    background: linear-gradient(#60a5fa, #8b5cf6);
+
+    /* Impede que a barrinha encolha em telas menores. */
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   7. SEÇÃO SOBRE
+======================================== */
+
+.sobre {
+    /* Organiza título e parágrafos verticalmente. */
+    display: flex;
+    flex-direction: column;
+
+    /* Espaço entre o título e cada parágrafo. */
+    gap: 14px;
+}
+
+.sobre p {
+    /* Limita a largura das linhas para facilitar a leitura. */
+    max-width: 920px;
+
+    /* Cinza claro para uma leitura mais suave. */
+    color: #cbd5e1;
+
+    /* Tamanho e distância entre as linhas dos parágrafos. */
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+
+/* ========================================
+   8. TECNOLOGIAS — CONJUNTO DE CARDS
+======================================== */
+
+.tecnologias {
+    /* Distância entre o texto Sobre e os cards. */
+    margin-top: 27px;
+
+    /* Organiza os cards na horizontal. */
+    display: flex;
+
+    /* Permite quebrar para a linha seguinte no celular. */
+    flex-wrap: wrap;
+
+    /* Alinha os cards à esquerda, como o texto da seção. */
+    justify-content: flex-start;
+
+    /* Espaço entre os cards. */
+    gap: 12px;
+}
+
+
+/* ========================================
+   9. ESTILO GERAL DOS CARDS
+======================================== */
+
+.card {
+    /* Garante uma largura mínima para os cards. */
+    min-width: 90px;
+
+    /* Espaçamento interno dos cards. */
+    padding: 11px 18px;
+
+    /* Centraliza o nome da tecnologia. */
+    text-align: center;
+
+    /* Cantos arredondados. */
+    border-radius: 10px;
+
+    /* Cor padrão dos nomes das tecnologias. */
+    color: white;
+
+    /* Tamanho e peso da fonte dos cards. */
+    font-size: 14px;
+    font-weight: 700;
+
+    /* Sombra discreta abaixo dos cards. */
+    box-shadow: 0 5px 12px #00000040;
+
+    /* Movimentação e sombra mais suaves ao passar o mouse. */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    /* Faz o card subir 4px quando passar o mouse. */
+    transform: translateY(-4px);
+
+    /* Aumenta um pouco a sombra enquanto o card sobe. */
+    box-shadow: 0 9px 20px #00000055;
+}
+
+/* CORES ORIGINAIS DAS TECNOLOGIAS — NÃO ALTERADAS */
+
+.html {
+    /* Laranja do HTML. */
+    background-color: #E34F26;
+}
+
+.css {
+    /* Azul do CSS. */
+    background-color: #1572B6;
+}
+
+.js {
+    /* Amarelo do JavaScript. */
+    background-color: #F7DF1E;
+
+    /* Texto escuro para aparecer bem sobre o amarelo. */
+    color: #181717;
+}
+
+.git {
+    /* Laranja-avermelhado do Git. */
+    background-color: #F05032;
+}
+
+.github {
+    /* Preto do GitHub. */
+    background-color: #181717;
+}
+
+
+/* ========================================
+   10. SEÇÃO MEUS PROJETOS
+======================================== */
+
+.meus-projetos {
+    /* Coloca título, descrição e botão um embaixo do outro. */
+    display: flex;
+    flex-direction: column;
+
+    /* Alinha tudo à esquerda, como na seção Sobre. */
+    align-items: flex-start;
+
+    /* Espaço entre os elementos da seção. */
+    gap: 18px;
+
+    /* Não usamos margin-top aqui, porque o main já usa gap. */
+}
+
+.meus-projetos p {
+    /* Limita a largura da descrição do projeto. */
+    max-width: 920px;
+
+    /* Mantém a mesma aparência dos textos da seção Sobre. */
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   BOTÕES DA SEÇÃO MEUS PROJETOS
+======================================== */
+
+/* Organiza os dois botões */
+.botoes-projetos {
+
+    /* Coloca os botões lado a lado */
+    display: flex;
+
+    /* Centraliza os botões horizontalmente */
+    justify-content: center;
+
+    /* Espaço entre os botões */
+    gap: 15px;
+
+    /* Permite quebrar de linha em telas menores */
+    flex-wrap: wrap;
+}
+
+
+/* Botão Ver meus projetos */
+.link-projetos {
+
+    /* Cor de fundo azul */
+    background-color: #2563eb;
+
+    /* Cor do texto */
+    color: white;
+
+    /* Espaçamento interno */
+    padding: 12px 20px;
+
+    /* Arredonda os cantos */
+    border-radius: 8px;
+
+    /* Deixa o texto destacado */
+    font-weight: 600;
+
+    /* Centraliza o texto */
+    text-align: center;
+
+    /* Deixa as mudanças visuais suaves */
+    transition: 0.3s;
+}
+
+
+/* Quando o mouse passar sobre o botão */
+.link-projetos:hover {
+
+    /* Deixa o azul um pouco mais claro */
+    background-color: #3b82f6;
+
+    /* Move o botão levemente para cima */
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   11. SEÇÃO CONTATO
+======================================== */
+
+.contato {
+    /* Coloca título e botão um embaixo do outro. */
+    display: flex;
+    flex-direction: column;
+
+    /* Alinha tudo à esquerda, igual às outras seções. */
+    align-items: flex-start;
+
+    /* Espaço entre o título e o botão LinkedIn. */
+    gap: 18px;
+}
+
+
+/* ========================================
+   12. LINKS / BOTÕES DO GITHUB E LINKEDIN
+======================================== */
+
+.link-github,
+.link-linkedin {
+    /* Permite centralizar o texto dentro dos botões. */
+    display: inline-flex;
+
+    /* Centraliza o texto na horizontal e na vertical. */
+    align-items: center;
+    justify-content: center;
+
+    /* Tamanho mínimo confortável para clicar no celular. */
+    min-width: 125px;
+    min-height: 44px;
+
+    /* Espaçamento dentro dos botões. */
+    padding: 11px 22px;
+
+    /* Arredonda os cantos dos botões. */
+    border-radius: 10px;
+
+    /* Mantém o texto claro sobre os fundos originais. */
+    color: beige;
+
+    /* Tamanho e peso do texto dos botões. */
+    font-size: 15px;
+    font-weight: 700;
+
+    /* Faz o efeito de levantar acontecer suavemente. */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.link-github {
+    /* Cor ORIGINAL do botão GitHub. */
+    background-color: #181717;
+
+    /* Borda azul-acinzentada para destacar sobre o fundo. */
+    border: 1px solid #526075;
+}
+
+.link-linkedin {
+    /* Cor ORIGINAL do botão LinkedIn. */
+    background-color: #1572B6;
+
+    /* Borda da mesma cor do botão. */
+    border: 1px solid #1572B6;
+}
+
+.link-github:hover,
+.link-linkedin:hover {
+    /* Levanta os botões ao passar o mouse. */
+    transform: translateY(-3px);
+
+    /* A sombra aumenta para destacar o botão. */
+    box-shadow: 0 8px 18px #00000040;
+}
+
+/* Se a pessoa navegar pelo teclado, mostra um contorno
+   claro no link ou botão selecionado. */
+.links-nav:focus-visible,
+.botao-menu:focus-visible,
+.link-github:focus-visible,
+.link-linkedin:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   13. RODAPÉ DA PÁGINA
+======================================== */
+
+footer {
+    /* Espaço entre o último bloco e o rodapé. */
+    margin-top: 48px;
+
+    /* Espaçamento interno do rodapé. */
+    padding: 28px 20px 36px;
+
+    /* Linha discreta acima do rodapé. */
+    border-top: 1px solid #ffffff1c;
+
+    /* Texto em cinza azulado para não competir com os títulos. */
+    color: #94a3b8;
+
+    /* Centraliza o texto do rodapé. */
+    text-align: center;
+
+    /* Tamanho discreto para o copyright. */
+    font-size: 13px;
+}
+
+
+/* ========================================
+   14. RESPONSIVIDADE — CELULAR E TABLET
+
+   Todas as regras abaixo valem quando a
+   largura da tela for 1000px ou menor.
+======================================== */
+
+@media screen and (max-width: 1000px) {
+
+    /* CABEÇALHO EM TELAS MENORES */
+    header {
+        /* Reduz o espaço nas laterais do header. */
+        padding: 14px 20px;
+    }
+
+    h1 {
+        /* Deixa espaço para o botão ☰ ao lado do nome. */
+        max-width: calc(100% - 65px);
+
+        /* Reduz o tamanho do nome em telas menores. */
+        font-size: 19px;
+    }
+
+    /* MENU NORMAL NO CELULAR */
+    nav {
+        /* Esconde Sobre, Projetos e Contato inicialmente. */
+        display: none;
+    }
+
+    /* BOTÃO ☰ NO CELULAR */
+    .botao-menu {
+        /* Faz o botão aparecer e centraliza o símbolo. */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Define um tamanho confortável para o toque. */
+        width: 43px;
+        height: 43px;
+
+        /* Impede que o botão seja comprimido pelo nome. */
+        flex-shrink: 0;
+
+        /* Aparência do botão hambúrguer. */
+        background-color: #1d2c45;
+        border: 1px solid #354761;
+        border-radius: 10px;
+        color: #f8fafc;
+
+        /* Tamanho do símbolo ☰. */
+        font-size: 25px;
+
+        /* Mostra a mãozinha ao passar o mouse. */
+        cursor: pointer;
+    }
+
+    /* MENU QUANDO ESTIVER ABERTO NO CELULAR */
+    nav.menu-aberto {
+        /* O JavaScript adiciona a classe 'menu-aberto'
+           quando você clica no botão ☰. */
+        display: flex;
+
+        /* Coloca os links um abaixo do outro. */
+        flex-direction: column;
+
+        /* Faz os links ocuparem toda a largura do menu. */
+        align-items: stretch;
+
+        /* Espaço entre os links. */
+        gap: 4px;
+
+        /* Posiciona o menu em relação ao header. */
+        position: absolute;
+
+        /* Aparece logo abaixo do cabeçalho. */
+        top: calc(100% + 8px);
+
+        /* Encosta o menu no lado direito. */
+        right: 20px;
+
+        /* Largura e espaço interno do menu suspenso. */
+        width: 200px;
+        padding: 8px;
+
+        /* Fundo e borda que combinam com o resto do site. */
+        background-color: #17253b;
+        border: 1px solid #354761;
+        border-radius: 14px;
+
+        /* Destaca o menu sobre o conteúdo da página. */
+        box-shadow: 0 14px 35px #00000070;
+    }
+
+    nav.menu-aberto .links-nav {
+        /* Aumenta a área clicável dos links do menu aberto. */
+        padding: 12px;
+
+        /* Tamanho confortável e texto alinhado à esquerda. */
+        font-size: 15px;
+        text-align: left;
+    }
+
+    main {
+        /* Aproxima o conteúdo do header nas telas menores. */
+        margin-top: 30px;
+    }
+}
+
+
+/* ========================================
+   15. RESPONSIVIDADE — CELULAR PEQUENO
+
+   Regras extras para telas de até 600px.
+======================================== */
+
+@media screen and (max-width: 600px) {
+
+    h1 {
+        /* Nome um pouco menor em celulares estreitos. */
+        font-size: 16px;
+    }
+
+    main {
+        /* 14px de distância nas duas laterais da tela. */
+        width: calc(100% - 28px);
+
+        /* Menor espaço entre header e conteúdo. */
+        margin-top: 22px;
+
+        /* Menor distância entre as seções. */
+        gap: 16px;
+    }
+
+    section {
+        /* Reduz o espaço interno para aproveitar a tela. */
+        padding: 24px 20px;
+
+        /* Arredondamento um pouco menor. */
+        border-radius: 15px;
+    }
+
+    h2 {
+        /* Ajusta os títulos à largura do celular. */
+        font-size: 23px;
+    }
+
+    .sobre p,
+    .meus-projetos p {
+        /* Textos menores, sem perder a facilidade de leitura. */
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .tecnologias {
+        /* Aproxima um pouco os cards do texto e entre si. */
+        margin-top: 22px;
+        gap: 10px;
+    }
+
+    .card {
+        /* Permite que cards menores aproveitem melhor o espaço. */
+        min-width: 0;
+
+        /* Diminui o espaço interno dos cards. */
+        padding: 10px 13px;
+
+        /* Ajusta a fonte dos nomes das tecnologias. */
+        font-size: 13px;
+    }
+
+    .meus-projetos,
+    .contato {
+        /* Mantém os elementos alinhados à esquerda,
+           reduzindo apenas o espaço entre eles. */
+        gap: 15px;
+    }
+
+    footer {
+        /* Aproxima um pouco o rodapé da última seção. */
+        margin-top: 30px;
+    }
+}
